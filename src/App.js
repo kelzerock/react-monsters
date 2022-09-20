@@ -26,14 +26,20 @@ class App extends Component {
           </p>
           <button
             onClick={() => {
-              this.setState({
-                name: {
-                  firstName: "Egor",
-                  lastName: 'Zhuchkov'
+              this.setState(
+                () => {
+                  return {
+                    name: {
+                      firstName: "Egor",
+                      lastName: "Zhuchkov",
+                    },
+                    company: "xxx",
+                  };
                 },
-                company: 'xxx'
-              });
-              console.log(this.state);
+                () => {
+                  console.log(this.state);
+                }
+              );
             }}
           >
             Change name
