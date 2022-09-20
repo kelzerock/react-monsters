@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Component } from "react";
 
@@ -7,44 +6,29 @@ class App extends Component {
     super();
 
     this.state = {
-      name: {
-        firstName: "Aleksei",
-        lastName: "Zhuchkov",
-      },
-      company: "ASB",
+      monster: [
+        {
+          name: 'Kristy'
+        },
+        {
+          name: 'Katty'
+        },
+        {
+          name: 'Alex'
+        },
+        {
+          name: 'Egor'
+        },
+      ]
     };
   }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Hello {this.state.name.firstName} {this.state.name.lastName}! You
-            are working in {this.state.company}
-          </p>
-          <button
-            onClick={() => {
-              this.setState(
-                () => {
-                  return {
-                    name: {
-                      firstName: "Egor",
-                      lastName: "Zhuchkov",
-                    },
-                    company: "xxx",
-                  };
-                },
-                () => {
-                  console.log(this.state);
-                }
-              );
-            }}
-          >
-            Change name
-          </button>
-        </header>
+        {this.state.monster.map((element) => {
+          return <h1>{element.name}</h1>
+        })}
       </div>
     );
   }
