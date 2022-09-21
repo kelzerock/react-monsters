@@ -30,9 +30,10 @@ class App extends Component {
     return (
       <div className="App">
       <input className="search-monster" type='search' plaseholder='search monster' onChange={(event)=>{
-        const eventValue = event.target.value;
+        const eventValue = event.target.value.toLowerCase();
+        const newArrayMonsters = this.state.monsters.filter(el=> el.name.toLowerCase().includes(eventValue) )
         this.setState(()=>{
-          return {monsters: this.state.monsters.filter(el=> (el.name).includes(eventValue) )}
+          return {monsters: newArrayMonsters}
         })
       }}/>
         {this.state.monsters.map((element) => {
