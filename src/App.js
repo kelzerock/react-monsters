@@ -1,6 +1,6 @@
 import "./App.css";
 import { Component } from "react";
-import CardList from "./components/card-list/card-list.component"
+import CardList from "./components/card-list/card-list.component";
 
 class App extends Component {
   constructor() {
@@ -10,24 +10,17 @@ class App extends Component {
       monsters: [],
       searchMonster: "",
     };
-    console.log("constructor");
   }
 
   componentDidMount() {
-    console.log("componentDidMount");
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((data) => {
         return data.json();
       })
       .then((user) =>
-        this.setState(
-          () => {
-            return { monsters: user };
-          },
-          () => {
-            console.log(this.state);
-          }
-        )
+        this.setState(() => {
+          return { monsters: user };
+        })
       );
   }
 
@@ -39,7 +32,6 @@ class App extends Component {
   };
 
   render() {
-    console.log("render");
     const { monsters, searchMonster } = this.state;
     const { onChangeSearch } = this;
     const newArrayMonsters = monsters.filter((el) => {
@@ -53,8 +45,7 @@ class App extends Component {
           plaseholder="search monster"
           onChange={onChangeSearch}
         />
-        <CardList />
-
+        <CardList monsters={newArrayMonsters} />
       </div>
     );
   }
