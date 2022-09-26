@@ -40,6 +40,7 @@ class App extends Component {
     });
     return (
       <div className="App">
+      <h1 className="app-title">Monster rolodex</h1>
         <SearchBox
           className="search-box-mosters"
           placeholder="Search monster"
